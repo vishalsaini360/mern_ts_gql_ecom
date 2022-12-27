@@ -24,7 +24,7 @@ export const FA = styled.i`
     height: 16px;
     margin: 0 7px;
 `;
-export const Form = styled.div`   
+export const FormWrapper = styled.div`   
     margin-bottom: 1rem!important;
     width: 100%; width: 376px;
     margin-top:40px;
@@ -91,6 +91,6 @@ export const ErrorP = styled.p`
     font-size:14px;
     color:red;
 `;
-export const Form2 = styled.form`
+export const Form = styled.form`
 
 `;

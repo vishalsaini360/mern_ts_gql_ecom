@@ -18,6 +18,7 @@ export default function Login() {
     setFormData({...formData,[name]:value})
       if(!regex.test(formData.email)){
         setEmailError("This is nat a valid email format")
+        setIsFormData(false)
       }else{
         setEmailError("")
         setIsFormData(true)
@@ -25,6 +26,8 @@ export default function Login() {
     if(formData.password){
       setPasswordError("")
       setIsFormData(true)
+    }else{
+      setIsFormData(false)
     }
     console.log(formData)
   }
@@ -33,9 +36,11 @@ export default function Login() {
     e.preventDefault();
     if(!formData.email){
       setEmailError("email is required feild")
+      setIsFormData(false)
     }
     if(!formData.password){
       setPasswordError("password is required feild")
+      setIsFormData(false)
     }
     if(isFormData){
       alert("form submitted...")

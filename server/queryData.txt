@@ -1,0 +1,116 @@
+=======================
+#Get All Users
+=======================
+query getUsers{
+  getUsers{
+    _id
+    firstName
+    lastName
+    email
+    createdAt
+  }
+}
+=======================
+#Get All Users
+=======================
+
+=======================
+#Create User
+=======================
+    |_Mutation Data
+    ==================
+    mutation createUser($RegisterInput:RegisterInput!){
+        register(RegisterInput:$RegisterInput){
+            _id
+            firstName
+            lastName
+            email
+            createdAt
+            updatedAt
+            jwt
+        }
+    }
+
+    |_Query Variables
+    ==================
+        {
+            "RegisterInput":  {
+                "firstName": "Vishal",
+                "lastName": "Saini",
+                "email": "vishal@gmail.com",
+                "password": "12345678"
+            }
+        }
+
+=======================
+#Create User
+=======================
+
+=======================
+# Login User
+=======================
+|_Mutation Data
+    ==================
+    mutation loginUser($LoginInput:LoginInput!){
+        login(LoginInput:$LoginInput){
+                _id
+                firstName
+                lastName
+                email
+                jwt
+                createdAt
+                updatedAt
+            }
+        }
+
+    |_Query Variables
+    ==================
+        {
+            "LoginInput":  {
+                "email": "vishal@gmail.com",
+                "password": "12345678"
+            }
+        }
+
+=======================
+# Login User
+=======================
+
+
+
+=======================
+# Update Profile
+=======================
+|_Mutation Data
+    ==================
+    mutation updateProfile($ProfileInput:ProfileInput!){
+        updateProfile(ProfileInput:$ProfileInput){
+                _id
+                firstName
+                lastName
+                email
+                createdAt
+                updatedAt
+            }
+        }
+
+    |_Query Variables
+    ==================
+       {
+        "ProfileInput":  {
+            "firstName": "Vishal",
+            "lastame": "saini"
+            }
+        }
+
+    |_Http Header
+    ==================
+       {
+            "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FlZWI0ZGQwNWQyMTNkY2Q0ODgyZGMiLCJpYXQiOjE2NzI0MDk1NDIsImV4cCI6MTY3MzcwNTU0Mn0.P6unj7Web-isdZrDcqt07Izw6JiCYqW2B9J_9gTSgK0"
+        }
+
+=======================
+# Update Profile
+=======================
+
+

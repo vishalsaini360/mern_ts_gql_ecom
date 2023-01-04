@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config()
 
+const jwt = require('jsonwebtoken');
+
 const typeDefs = require('./graphql/typeDefs')
 const resolvers = require('./graphql/resolvers')
 
@@ -18,9 +20,23 @@ mongoose.connect(process.env.MONGO_URL,{
     }
 })
 
+const context=({ req }) => {
+    const { authorization } = req.headers
+    // console.log('authorization',authorization)
+    if (authorization) {
+      return jwt.verify(authorization, process.env.jwtSecretKeyApp, async (error, result) => {
+        if (error) {
+          return false
+        }
+        return { _id: result._id }
+      })
+    }
+  }
+
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    context,
     plugins:[
         ApolloServerPluginLandingPageGraphQLPlayground()
     ]

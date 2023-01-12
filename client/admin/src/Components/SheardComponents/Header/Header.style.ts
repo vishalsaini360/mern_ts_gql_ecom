@@ -58,7 +58,11 @@ export const LoginP = styled.p`
         background-color:#555;
     }
 `;
-export const LoginLink = styled(NavLink)`
+export const LoginLink = styled.span`
     color:#222;
     text-decoration:none;
+    cursor:pointer;
+    :hover{
+        color:#fff;
+    }
 `;

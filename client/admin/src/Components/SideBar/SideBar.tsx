@@ -19,7 +19,7 @@ function SideBar() {
                         <Anchor to="/">
                             <Icon >
                             </Icon>
-                            <Anchor to="/Admin"><Title>Dashboard</Title></Anchor>
+                            <Anchor to="/admin/dashboard"><Title>Dashboard</Title></Anchor>
                         </Anchor>
                     </Li>
 
@@ -27,28 +27,28 @@ function SideBar() {
                         <Anchor to="/">
                             <Icon >
                             </Icon>
-                            <Anchor to="/Admin/Banner"><Title>Banner</Title></Anchor>
+                            <Anchor to="/admin/danner"><Title>Banner</Title></Anchor>
                         </Anchor>
                     </Li> */}
                     <Li>
                         <Anchor to="/">
                             <Icon >
                             </Icon>
-                            <Anchor to="/Admin/Category"><Title>Category</Title></Anchor>
+                            <Anchor to="/admin/category"><Title>Category</Title></Anchor>
                         </Anchor>
                     </Li>
                     <Li>
                         <Anchor to="/">
                             <Icon >
                             </Icon>
-                            <Anchor to="/Admin/SubCategory"><Title>Sub Category</Title></Anchor>
+                            <Anchor to="/admin/subCategory"><Title>Sub Category</Title></Anchor>
                         </Anchor>
                     </Li>
                     <Li>
                         <Anchor to="/">
                             <Icon >
                             </Icon>
-                            <Anchor to="/Admin/Products"><Title>Products</Title></Anchor>
+                            <Anchor to="/admin/product"><Title>Products</Title></Anchor>
                         </Anchor>
                     </Li>
 

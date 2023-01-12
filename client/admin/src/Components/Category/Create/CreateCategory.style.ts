@@ -5,14 +5,23 @@ export const Wrapper = styled.div`
     color: White;
     margin-left: 298px;
     padding-left: 56px;
-    margin-top:40vh;
+    margin-top:20px;
 `;
+export const H2 = styled.h2`
+    text-align:center;
+    font-size:48px;
+    font-weight:400;
+    color:#000;
+    padding-bottom:20px;
+    border-bottom:1px solid #555;
+`
 export const Form = styled.form`
     border:1px solid #555;
     border-radius:8px;
     padding:50px 50px;
     margin-left:15px;
     margin-right:15px;
+    box-shadow: inset 0 1px 1px #555, 0 0 8px #555;
 `;
 export const Label = styled.label`
     color:#000;
@@ -54,7 +63,8 @@ export const Button = styled.button`
     margin-top:20px;
     width:100%;
     color: #fff;
-    background-color: #337ab7;
+    background-color: #071C1F
+    ;
     border-color: #2e6da4;
     display: inline-block;
     margin-bottom: 0;
@@ -71,4 +81,9 @@ export const Button = styled.button`
     line-height: 1.42857143;
     border-radius: 4px;
     user-select: none;
+`;
+export const P = styled.span`
+    color:red;
+    font-size:14px;
+    padding:10px 10px;
 `;

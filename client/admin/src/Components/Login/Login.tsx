@@ -4,6 +4,9 @@ import {
   } from './Login.style'
   import { useFormik } from 'formik'
 import { Schemas } from './Schema/Schema'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@apollo/client'
+import { LOGIN_ADMIN } from '../../gqlOperations/mutations'
   
 const initialValues = {
     email:"",
@@ -11,17 +14,30 @@ const initialValues = {
   }
 
   export default function Login() {
+    const navigate = useNavigate()
+    const [adminLogin,{error,loading,data}] = useMutation(LOGIN_ADMIN,{
+      onCompleted(data){
+          localStorage.setItem('token',data.admin.jwt)
+          navigate('/admin/dashboard')
+      }
+  })
+  // if(loading) return <h1>Loading</h1>
+
     const {values,errors,touched,handleChange,handleSubmit}=
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useFormik({
         initialValues,
         validationSchema:Schemas,
         onSubmit:(values,action)=>{
-        console.log("values : ",values);
-        alert("form Submited")
-        action.resetForm();
+        // console.log("values : ",values);
+        // alert("form Submited")
+        adminLogin({
+          variables:{
+            AdminLoginInput:values
+          }
+      })
         }
     })
-    console.log("errors : ",errors);
     return (
       <>
         <Wrapper>
@@ -47,7 +63,12 @@ const initialValues = {
                 </ErrorP>
               </DivInput>
               <DivInput>
-                <Button2 type='submit'>SIGN IN</Button2>
+              <ErrorP>
+                    {(error) ? (
+                        <ErrorP>{error.message}</ErrorP>
+                     ) : null}
+                </ErrorP>
+               <Button2 type='submit'>SIGN IN</Button2>
               </DivInput>
             </Form2>
           </Form>

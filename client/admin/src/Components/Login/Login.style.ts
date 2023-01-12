@@ -69,7 +69,7 @@ export const Label = styled.label`
 export const DivInput = styled.div`
     margin-top: 1rem!important;
 `;
-export const ErrorP = styled.p`
+export const ErrorP = styled.div`
     font-size:14px;
     color:red;
 `;

@@ -1,6 +1,7 @@
 import { TopBar, Toggle, TopBar1,HeaderLink,H1,DropdownContent ,LoginLink,LoginP} from './Header.style'
-
+import { useNavigate } from 'react-router-dom'
 function Header() {
+    const navigate = useNavigate()
     return (
         <div>
             <TopBar>
@@ -10,7 +11,10 @@ function Header() {
                     <i className="fa fa-user text-dark"></i>Admin
                     <DropdownContent>
                         <LoginP>
-                            <LoginLink to="/">Logout</LoginLink>
+                        <LoginLink onClick={()=>{
+                                                    localStorage.removeItem('token')
+                                                    navigate('/admin')
+                                                }}>Logout</LoginLink>
                         </LoginP>
                     </DropdownContent>
                 </HeaderLink>
